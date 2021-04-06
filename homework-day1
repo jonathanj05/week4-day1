@@ -1,0 +1,52 @@
+--Query for actors with the last name 'Wahlberg'
+SELECT last_name
+FROM actor
+WHERE last_name = 'Wahlberg';
+
+--Query for how many payments made between 3.99 and 5.99
+SELECT amount
+FROM payment
+WHERE amount BETWEEN 3.99 AND 5.99
+
+--Query for film store has the most of
+SELECT title, inventory_id
+FROM inventory, film
+ORDER BY inventory_id DESC;
+
+--number of customers with the last name 'Willam'
+SELECT last_name
+FROM customer
+WHERE last_name = 'William';
+
+--store employee with most rentals
+SELECT staff_id, rental_id
+FROM rental 
+Group BY staff_id, rental_id
+ORDER BY staff_id DESC;
+
+
+--amount of different district names there are
+SELECT district
+FROM address
+GROUP BY district
+ORDER BY district;
+
+--film with most actors
+SELECT film_id, actor_id
+from film_actor
+GROUP BY film_id, actor_id
+ORDER BY film_id DESC;
+
+--store_id1 with lastname ending with 'es'
+SELECT last_name, store_id
+FROM customer
+WHERE last_name LIKE '%es'
+ORDER BY store_id ASC;
+
+--payment amounts num of rentals above 250 for customers with ids btw 380 and 430
+
+--rating categories
+SELECT rating, SUM(film_id)
+FROM film
+GROUP BY rating
+ORDER BY rating DESC;
